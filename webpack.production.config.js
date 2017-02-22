@@ -9,6 +9,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
+
 module.exports = {
     devtool: 'source-map',
     entry: ['./app/index.jsx', './app/assets/sass/main.scss'],
@@ -30,7 +31,10 @@ module.exports = {
             }
         ]
     },
-    plugins: [HtmlWebpackPluginConfig, new ExtractTextPlugin({filename:"main.[contenthash].css"})],
+    plugins: [HtmlWebpackPluginConfig,
+        new webpack.optimize.AggressiveMergingPlugin(),
+        new ExtractTextPlugin({filename:"main.[contenthash].css"})
+],
     devServer: {
         port: 8081,
         host: 'localhost',
@@ -41,4 +45,4 @@ module.exports = {
             ignored: /node_modules/
         }
     }
-}
+};

@@ -11,5 +11,7 @@ target/
 *.iml
 .idea/
 node_modules/
+build/
 resources/sass/.sass-cache/
 react-ex.txt
+.log
